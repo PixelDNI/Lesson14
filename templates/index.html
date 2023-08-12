@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+        position: relative;
+        left: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        }
+    </style>
+
+</head>
+<body>
+<div id="main">
+  {% for product in left %}
+
+    <div>
+        <h1>left</h1>
+        <p>{{product.name}}</p>
+        <p>{{product.show_category}}</p>
+        <p>{{product.price}}$</p>
+       <a href="{% url 'product_detail_left' pk=product.pk %}"><button>More</button></a>
+    </div>
+    {% endfor %}
+
+
+  {% for product in right %}
+
+    <div>
+        <h1>right</h1>
+        <p>{{product.name}}</p>
+        <p>{{product.show_category}}</p>
+        <p>{{product.price}}$</p>
+        <a href={{product.get_absolute_url}}><button>More</button></a>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
